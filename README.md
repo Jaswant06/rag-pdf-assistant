@@ -28,8 +28,8 @@ says so instead of inventing one.
 4. **Retrieve:** embed the question and find the closest chunks by cosine
    similarity.
 5. **Generate:** send those chunks plus the question to a language model
-   (`Qwen/Qwen2.5-7B-Instruct` via the Hugging Face Inference API) with an
-   instruction to answer only from the context and cite pages (`src/generator.py`).
+   (`meta-llama/Llama-3.3-70B-Instruct` via the Hugging Face Inference API) with
+   an instruction to answer only from the context and cite pages (`src/generator.py`).
 
 Steps 2 to 4 are the same embedding-and-similarity idea as a semantic search
 tool. RAG adds the PDF input and the grounded generation step on top.
@@ -69,7 +69,7 @@ pytest
 
 ## Configuration
 
-- `RAG_MODEL`: the generation model id (default `Qwen/Qwen2.5-7B-Instruct`).
+- `RAG_MODEL`: the generation model id (default `meta-llama/Llama-3.3-70B-Instruct`).
 - `HF_TOKEN`: Hugging Face token used for inference. On a Hugging Face Space, add
   it as a secret.
 

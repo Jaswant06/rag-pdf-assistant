@@ -14,7 +14,7 @@ from huggingface_hub import InferenceClient
 
 from .store import Retrieved
 
-DEFAULT_MODEL = os.environ.get("RAG_MODEL", "Qwen/Qwen2.5-7B-Instruct")
+DEFAULT_MODEL = os.environ.get("RAG_MODEL", "meta-llama/Llama-3.3-70B-Instruct")
 
 SYSTEM_PROMPT = (
     "You answer questions using only the provided context from a document. "

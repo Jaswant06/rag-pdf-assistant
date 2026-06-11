@@ -98,6 +98,16 @@ def build_ui() -> gr.Blocks:
                 )
                 ask_btn = gr.Button("Ask", variant="primary", size="lg", elem_id="ask-btn")
                 answer_out = gr.Markdown()
+                gr.Examples(
+                    examples=[
+                        ["Summarize this document in a few bullet points"],
+                        ["Explain the main concept in simple terms"],
+                        ["Solve the first problem step by step"],
+                        ["List the key points, dates, and numbers mentioned"],
+                    ],
+                    inputs=question_in,
+                    label="Example prompts",
+                )
 
             pdf_in.change(ingest, inputs=pdf_in, outputs=status)
             ask_btn.click(ask, inputs=question_in, outputs=answer_out)
