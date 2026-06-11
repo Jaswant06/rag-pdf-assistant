@@ -1,8 +1,8 @@
 """Generate a grounded answer from retrieved context using an LLM.
 
 Generation goes through the Hugging Face Inference API, so no model weights are
-downloaded. The model id comes from RAG_MODEL (default Qwen2.5-7B-Instruct). The
-chat client is injected, which keeps the tests offline.
+downloaded. The model id comes from RAG_MODEL (default Llama-3.3-70B-Instruct).
+The chat client is injected, which keeps the tests offline.
 """
 
 from __future__ import annotations
