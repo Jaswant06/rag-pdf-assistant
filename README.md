@@ -1,12 +1,14 @@
-# RAG PDF Assistant: Chat With Your PDF (Retrieval Augmented Generation, NLP)
+# DocuMind: Chat With Your PDF (Retrieval Augmented Generation, NLP)
 
-Upload a PDF, ask questions about it, and get answers grounded in the document,
-with the page number each answer came from. Built with **Retrieval Augmented
-Generation (RAG)**: relevant passages are retrieved with sentence embeddings,
-then a language model writes an answer using only those passages, so it does not
-make things up.
+DocuMind lets you upload a PDF, ask questions about it, and get answers grounded
+in the document with the page number each answer came from. Built with
+**Retrieval Augmented Generation (RAG)**: relevant passages are retrieved with
+sentence embeddings, then a language model writes an answer using only those
+passages, so it does not make things up.
 
 > Upload a PDF -> ask a question -> get a cited answer, or an honest "not found".
+
+**Live demo:** https://huggingface.co/spaces/JaswantDev/rag-pdf-assistant
 
 ## Why RAG (and not just a chatbot)
 

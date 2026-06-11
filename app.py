@@ -12,8 +12,8 @@ from src import RagPipeline
 pipeline = RagPipeline()
 
 THEME = gr.themes.Soft(
-    primary_hue="teal",
-    secondary_hue="indigo",
+    primary_hue="violet",
+    secondary_hue="fuchsia",
     neutral_hue="slate",
     font=[gr.themes.GoogleFont("Inter"), "system-ui", "sans-serif"],
     radius_size=gr.themes.sizes.radius_lg,
@@ -29,31 +29,31 @@ CSS = """
   border: 1px solid rgba(2, 6, 23, 0.05);
 }
 #ask-btn {
-  background: linear-gradient(135deg, #0d9488 0%, #4f46e5 100%) !important;
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%) !important;
   border: none !important; color: #fff !important; font-weight: 600 !important;
-  box-shadow: 0 8px 22px rgba(79, 70, 229, 0.28) !important;
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.28) !important;
   transition: transform .15s ease, box-shadow .15s ease !important;
 }
 #ask-btn:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 14px 32px rgba(79, 70, 229, 0.40) !important;
+  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.40) !important;
 }
 footer { display: none !important; }
 """
 
 HERO = """
-<div style="background: linear-gradient(135deg,#0f766e 0%,#0e7490 45%,#4338ca 100%);
+<div style="background: linear-gradient(135deg,#5b21b6 0%,#7c3aed 45%,#db2777 100%);
             border-radius: 22px; padding: 48px 28px; text-align: center; color: #ffffff;
-            box-shadow: 0 18px 50px rgba(67,56,202,0.28);">
+            box-shadow: 0 18px 50px rgba(124,58,237,0.30);">
   <div style="display:inline-block; padding:5px 14px; border-radius:999px; font-size:.8rem;
               letter-spacing:.08em; text-transform:uppercase; background:rgba(255,255,255,.16);
-              margin-bottom:16px;">Retrieval Augmented Generation</div>
-  <div style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.02em; line-height:1.08;">
-    Chat with your PDF
+              margin-bottom:16px;">AI Document Intelligence</div>
+  <div style="font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; line-height:1.05;">
+    DocuMind
   </div>
-  <div style="font-size: 1.1rem; opacity: .92; margin: 16px auto 0; max-width: 600px; line-height:1.55;">
-    Upload a document and ask questions about it. Answers are grounded in the
-    text, with the page each one came from.
+  <div style="font-size: 1.1rem; opacity: .92; margin: 14px auto 0; max-width: 600px; line-height:1.55;">
+    Upload a document and ask it anything. Every answer is grounded in the text,
+    with the page it came from.
   </div>
 </div>
 """
@@ -86,7 +86,7 @@ def ask(question: str) -> str:
 
 
 def build_ui() -> gr.Blocks:
-    with gr.Blocks(theme=THEME, css=CSS, title="RAG PDF Assistant") as demo:
+    with gr.Blocks(theme=THEME, css=CSS, title="DocuMind") as demo:
         with gr.Column(elem_id="wrap"):
             gr.HTML(HERO, elem_id="hero")
             with gr.Column(elem_id="card"):
@@ -105,5 +105,8 @@ def build_ui() -> gr.Blocks:
     return demo
 
 
+# Module-level app object so Hugging Face Spaces can find and launch it.
+demo = build_ui()
+
 if __name__ == "__main__":
-    build_ui().launch()
+    demo.launch()
